@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="icon" href="/images/images.jpg" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Yummy</title>
+  </head>
+  <body>
+    <div class="loading">
+      <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+
+    <nav class="slide-nav d-flex">
+      <div
+        class="slide-nav-left d-flex flex-column justify-content-between p-4"
+      >
+        <div class="links">
+          <ul class="overflow-hidden">
+            <li
+              onclick="searchInputs()"
+              class="py-2 position-relative c-pointer"
+            >
+              Search
+            </li>
+            <li
+              onclick="getCategories()"
+              class="py-2 position-relative c-pointer"
+            >
+              Categories
+            </li>
+            <li onclick="getArea()" class="py-2 position-relative c-pointer">
+              Area
+            </li>
+            <li
+              onclick="getIngredients()"
+              class="py-2 position-relative c-pointer"
+            >
+              Ingredients
+            </li>
+            <li onclick="ContactUs()" class="py-2 position-relative c-pointer">
+              Contact Us
+            </li>
+          </ul>
+        </div>
+        <div class="nav-footer">
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="footer">
+            <p>Copyright Â© 2019 All Rights <br />Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-header text-center bg-white text-black">
+        <img class="logo" src="images/images.jpg" alt="" />
+        <span id="toggleMenu" class="c-pointer">
+          <i class="fa-solid fa-2x fa-align-justify"></i>
+          <!-- <i class="fa-solid fa-xmark "></i> -->
+        </span>
+        <div class="d-flex flex-column">
+          <i class="fa-solid fa-globe d-block c-pointer"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </nav>
+
+    <section class="home">
+      <div class="container">
+        <div class="row g-2 p-4 meals"></div>
+
+        <section class="search">
+          <form class="d-flex gap-4 p-4">
+            <input
+              class="form-control bg-transparent text-white"
+              type="text"
+              placeholder="Search by name"
+              onkeyup="handleSearchByName(this.value)"
+            />
+
+            <input
+              class="form-control bg-transparent text-white"
+              type="text"
+              placeholder="Search by first letter"
+              id="searchByFirstLetter"
+              maxlength="1"
+              onkeyup="handleSearchByFirstLetter(this.value)"
+            />
+          </form>
+        </section>
+        <!-- meal info page -->
+        <section class="meal-page p-4"></section>
+
+        <section class="content row g-2 p-4"></section>
+
+        <section class="contact-us">
+          <form class="row g-3">
+            <div class="col-md-6">
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                class="form-control"
+                id="enteredName"
+                oninput="handleName(this.value)"
+              />
+
+              <p
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-name"
+              >
+                Special characters and numbers not allowed
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                class="form-control"
+                oninput="handleEmail(this.value)"
+                id="enteredEmail"
+              />
+
+              <div
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-email"
+              >
+                Email not valid *exemple@yyy.zzz
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="text"
+                placeholder="Enter Your Phone"
+                class="form-control"
+                id="enteredPhone"
+                oninput="handlePhone(this.value)"
+              />
+
+              <div
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-phone"
+              >
+                Enter valid Phone Number
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="number"
+                placeholder="Enter Your Age"
+                class="form-control"
+                id="enteredAge"
+                oninput="handleAge(this.value)"
+              />
+
+              <div
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-age"
+              >
+                Enter valid age
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="password"
+                placeholder="Enter Your Password"
+                class="form-control"
+                id="enteredPassword"
+                oninput="handlePassword(this.value)"
+              />
+
+              <div
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-password"
+              >
+                Enter valid password *Minimum eight characters, at least one
+                letter and one number:*
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input
+                type="password"
+                placeholder="Repassword"
+                class="form-control"
+                id="enteredRepassword"
+                oninput="handleRepassword(this.value)"
+              />
+
+              <div
+                class="invalid-feedback alert alert-danger w-100 mt-2"
+                id="invalid-repassword"
+              >
+                Enter valid repassword
+              </div>
+            </div>
+
+            <div class="col-12 text-center">
+              <button
+                class="btn btn-outline-danger p-2 mt-3 disabled"
+                type="submit"
+                id="btn-submit"
+              >
+                Submit form
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
